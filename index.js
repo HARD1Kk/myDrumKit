@@ -7,10 +7,11 @@ for (let i = 0; i <= 6; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function()  {
 
 
-        let state = this.innerHTML;
-        console.log(state);
+        let stateLetter = this.innerHTML;
+        console.log(stateLetter);
 
-        makeSound(state);
+        makeSound(stateLetter);
+        makeAnimation(stateLetter);
 
     });
 
@@ -19,6 +20,7 @@ document.addEventListener("keypress", function (event) {
     console.log(event);
     makeSound(event.key);
 
+    makeAnimation(event.key);
 });
 
 
@@ -68,6 +70,34 @@ function makeSound(key) {
 
 }
 
+/* 
+setTimout(funciton,milliseconds, parameter)
+
+
+*/ 
+
+
+
+function makeAnimation(presentkey){   
+
+    var activeButton = document.querySelector("."+ presentkey);
+    activeButton.classList.add("pressed");
+
+    setTimeout(function() {
+
+     activeButton.classList.remove("pressed");
+    },100);
+
+
+    
+
+
+
+
+
+
+
+}
 
 
 
